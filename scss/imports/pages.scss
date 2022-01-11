@@ -1,0 +1,114 @@
+@import './variables.scss';
+
+
+/* HOME */
+.home__carousel-slide {
+    padding-top: 2rem;
+}
+
+.home__icono-pagos {
+    font-size: 3em;
+    text-align: center;
+}
+
+.home__productos {
+    margin-bottom: 14em;
+}
+
+.home__productos-ancla {
+    text-decoration: none;
+    color: $colorPrincipal;
+    font-size: 1.1em;
+}
+
+.home__productos-ancla:hover {
+    text-decoration: none;
+    color: $colorHover;
+}
+
+.home__productos-boton {
+    background-color: $colorPrincipal;
+    border-color: $colorPrincipal;
+    color: white;
+}
+
+.home__productos-boton:hover {
+    background-color: $colorHover;
+    border-color: $colorHover;
+    color: white;
+}
+
+.home__productos-lista-carousel {
+    clear: both;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.home__productos-item-carousel {
+    clear: both;
+    white-space: normal;
+    height: 361.8px;
+}
+
+.home__productos-card {
+    width: 14em;
+}
+
+.home__productos--boton-atras {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.home__productos--boton-adelante {
+    transform: translateX(-596px);
+    -webkit-transform: translateX(-596px);
+    -moz-transform: translateX(-596px);
+    -ms-transform: translateX(-596px);
+    -o-transform: translateX(-596px);
+}
+
+
+/* REGISTRO */
+.registro__main {
+    margin-top: 8em;
+}
+
+.registro__modal-header {
+    border-bottom: none;
+}
+
+.registro__modal-footer {
+    border-top: none;
+}
+
+
+/* PRODUCTOS */
+.productos__main {
+    margin-top: 9em;
+    margin-bottom: 14em
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
