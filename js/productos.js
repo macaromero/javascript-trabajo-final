@@ -1,4 +1,6 @@
-// ARRAY DE PRODUCTOS //
+// VARIABLES //
+
+// Lista de productos
 let listaProductos = [
     {
         id: 1,
@@ -66,9 +68,27 @@ let listaProductos = [
     }
 ];
 
+// Array de categorías de productos
+let categorias = [
+    {
+        id: 1,
+        nombre: "Alimentos para perro"
+
+    },
+    {
+        id: 2,
+        nombre: "Alimentos para gato"
+
+    },
+    {
+        id: 3,
+        nombre: "Higiene"
+
+    }
+];
+
 // Variable para la creación de carrito de compras
 let carrito = [];
-
 
 
 // FUNCIONES //
@@ -96,6 +116,7 @@ const crearCards = (lista) => {
         } else if (document.querySelector("#cardsProductos")) {
             let col = document.createElement("div");
             col.setAttribute("class", "col mb-4");  
+            col.setAttribute("id", `col${p.id}`)
 
             col.innerHTML = `
                 <div class="card pt-3">
@@ -116,17 +137,23 @@ const crearCards = (lista) => {
 };
 
 // Funciones para mover el carousel de productos del home
-const botonAdelante = () => {
-    let botonAdelante = document.querySelector("#botonAdelante");
-    let lista = document.querySelector(".home__productos-lista-carousel");
-    lista.setAttribute("class", "d-block home__productos-lista-carousel home__productos--boton-adelante")
-}
+let botonAtras = document.querySelector("#botonAtras");
+if (botonAtras) {
+    botonAtras.addEventListener("click", () => {
+        let botonAtras = document.querySelector("#botonAtras");
+        let lista = document.querySelector(".home__productos-lista-carousel");
+        lista.setAttribute("class", "d-block home__productos-lista-carousel home__productos--boton-atras");
+    });
+};
 
-const botonAtras = () => {
-    let botonAtras = document.querySelector("#botonAtras");
-    let lista = document.querySelector(".home__productos-lista-carousel");
-    lista.setAttribute("class", "d-block home__productos-lista-carousel home__productos--boton-atras")
-}
+let botonAdelante = document.querySelector("#botonAdelante");
+if (botonAdelante != null) {
+    botonAdelante.addEventListener("click", () => {
+        let botonAdelante = document.querySelector("#botonAdelante");
+        let lista = document.querySelector(".home__productos-lista-carousel");
+        lista.setAttribute("class", "d-block home__productos-lista-carousel home__productos--boton-adelante");
+    });
+};
 
 // Función para agregar productos al carrito de compras
 const agregarItem = (p) => {
@@ -187,6 +214,111 @@ const agregarItem = (p) => {
     
 };
 
+// Función para crear y aplicar los filtros de visualización de productos que seleccione el usuario
+const crearFiltros = (categorias, lista) => {
+    let listaNueva = [];
+    $("#filtroProductos").append(
+        `
+        <option selected disabled value="default" class="gris">Filtrar por categoría</option>
+        <option value="todos" class="colorPrincipal">Todos</option>
+        `);
+        
+    categorias.forEach((c) => {
+        $("#filtroProductos").append(
+            `
+            <option value="${c.nombre}" class="colorPrincipal" id="productos__filtro-categorias">${c.nombre}</option>
+            `);       
+    });
+
+    $("#filtroProductos").change(function(e) {
+        $("#cardsProductos").empty();
+        if ((this.value == "todos") || (this.value == null)) {
+            crearCards(lista);
+            $("#ordenProductos").val("default");
+            listaNueva = [];
+            lista.forEach ((p) => {
+                listaNueva.push(p)
+            });
+        } else {
+            listaNueva = [];
+            lista.forEach((p) => {
+                if (p.categoria == this.value) {
+                    listaNueva.push(p);
+                }  
+            });
+            crearCards(listaNueva);
+            $("#ordenProductos").val("default");
+        };        
+    });
+    ordenarProductos(listaProductos);
+};
+
+// Función para establecer el orden de los productos que seleccione el usuario
+const ordenarProductos = (lista) => {
+    $("#ordenProductos").change(function (e) {
+        let valorFiltro = $("#filtroProductos").val();
+        let listaNueva = [];
+        if ((valorFiltro == null) || (valorFiltro == "todos")) {
+            listaNueva = [];
+            lista.forEach ((p) => {
+                listaNueva.push(p)
+            });
+        } else {
+            listaNueva = [];
+            lista.forEach((p) => {
+                if (p.categoria == valorFiltro) {
+                    listaNueva.push(p);
+                }  
+            });
+        };
+
+        switch (this.value) {
+            case "default":
+                    let listaDefault = listaNueva.sort((a, b) => {
+                        return a.id - b.id 
+                    });
+
+                    $("#cardsProductos").empty()
+                    crearCards(listaDefault);
+                    break;
+
+            case "nombre":
+                    let listaPorNombre = listaNueva.sort((a, b) => {
+                        if (a.nombre < b.nombre) {
+                            return -1
+                        }
+                        if (a.nombre > b.nombre) {
+                            return 1
+                        }
+                        return 0 
+                        });
+                    $("#cardsProductos").empty()
+                    crearCards(listaPorNombre);
+                    break;
+
+            case "menorPrecio":
+                    let listaPorMenorPrecio = listaNueva.sort((a, b) => {
+                        return a.precio - b.precio
+                        });
+                    $("#cardsProductos").empty()
+                    crearCards(listaPorMenorPrecio);
+                    break;
+
+            case "mayorPrecio":
+                    let listaPorMayorPrecio = listaNueva.sort((a, b) => {
+                        return b.precio - a.precio
+                        });
+                    $("#cardsProductos").empty()
+                    crearCards(listaPorMayorPrecio);
+                    break;
+    
+            default:
+                    break;
+        };
+    });
+};
+
+
 // LLAMADA A LAS FUNCIONES // 
 crearCards(listaProductos);
-
+crearFiltros(categorias, listaProductos);

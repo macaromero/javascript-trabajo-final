@@ -1,7 +1,7 @@
 // VARIABLES A UTILIZAR //
-const usuario_objeto = JSON.parse(localStorage.getItem("newUser"));
-const usuario = usuario_objeto.user;
-const password = usuario_objeto.password;
+const usuario_objeto = JSON.parse(sessionStorage.getItem("newUser")) || {};
+const usuario = usuario_objeto.user || null;
+const password = usuario_objeto.password || null;
 
 
 // FUNCIONES //
@@ -17,7 +17,7 @@ const iniciarSesion = (e) => {
         user = formulario.children[0].children[1].value;
         pass = formulario.children[1].children[1].value;
 
-        if (user == usuario && pass == password) {
+        if ((user == usuario) && (pass == password)) {
                 sessionStorage.setItem("usuario", user);
                 sesionIniciada();
         } else {
@@ -27,24 +27,50 @@ const iniciarSesion = (e) => {
 }
 
 const sesionIniciada = () => {
-    let user = sessionStorage.getItem("usuario");
     let userDropdown = document.getElementById("userDropdown");
     
-    userDropdown.innerHTML = `
-        <a class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
-            ${user}
-        </a>
+    if (sessionStorage.getItem("usuario")) {
+        let user = sessionStorage.getItem("usuario");
+        
+        userDropdown.innerHTML = `
+            <a class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
+                ${user}
+            </a>
+    
+            <ul class="dropdown-menu dropdown-menu-end" id="navbar__dropdown-menu">
+                <li><a class="dropdown-item" href="#">Modificar datos</a></li>
+                <li><a class="dropdown-item" href="#" id="cerrarSesion" onclick="cerrarSesion()">Cerrar sesión</a></li>
+            </ul>
+        `;
 
-        <ul class="dropdown-menu dropdown-menu-end" id="navbar__dropdown-menu">
-            <li><a class="dropdown-item" href="#">Modificar datos</a></li>
-            <li><a class="dropdown-item" href="#" id="cerrarSesion" onclick="cerrarSesion()">Cerrar sesión</a></li>
-        </ul>
-    `;
+        sessionStorage.setItem("usuarioIniciado", user);
+        sessionStorage.removeItem("usuario");
+    }
+    
 };
+
+const usuarioNavbar = () => {
+    let userDropdown = document.getElementById("userDropdown");
+    
+    if (sessionStorage.getItem("usuarioIniciado")) {
+        let user = sessionStorage.getItem("usuarioIniciado");
+        
+        userDropdown.innerHTML = `
+            <a class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
+                ${user}
+            </a>
+    
+            <ul class="dropdown-menu dropdown-menu-end" id="navbar__dropdown-menu">
+                <li><a class="dropdown-item" href="#">Modificar datos</a></li>
+                <li><a class="dropdown-item" href="#" id="cerrarSesion" onclick="cerrarSesion()">Cerrar sesión</a></li>
+            </ul>
+        `;
+    }
+}
 
 const cerrarSesion = () => {
     let userBoton = document.querySelector("#userDropdown");
-    sessionStorage.removeItem("usuario");
+    sessionStorage.removeItem("usuarioIniciado");
     userBoton.innerHTML = `
         <a class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-user usuario__boton"></i>
@@ -68,7 +94,7 @@ const cerrarSesion = () => {
     `
 };
 
-
+usuarioNavbar();
 
 
 
