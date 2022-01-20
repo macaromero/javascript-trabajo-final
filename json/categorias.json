@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nombre": "Alimentos para perro"
+
+    },
+    {
+        "id": 2,
+        "nombre": "Alimentos para gato"
+
+    },
+    {
+        "id": 3,
+        "nombre": "Higiene"
+
+    }
+]

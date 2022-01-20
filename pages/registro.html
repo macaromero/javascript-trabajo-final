@@ -53,7 +53,7 @@
                         <i class="fas fa-user navbar__usuario-boton"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end p-3" id="navbar__dropdown-menu">
-                        <form action="" id="formulario" onsubmit="iniciarSesion(event)">
+                        <form action="" id="formulario" method="post" onsubmit="iniciarSesion(event)">
                             <div class="mb-3">
                                 <label for="nombreUser" class="form-label">Nombre de usuario</label>
                                 <input class="form-control" id="nombreUser" placeholder="email@ejemplo.com">
@@ -81,7 +81,7 @@
             </div>
             <div class="row colorPrincipal justify-content-center">
                 <div class="col-6">
-                    <form class="p-4" id="registro">
+                    <form class="p-4" id="registro" method="post">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input class="form-control" id="nombre" placeholder="Ejemplo">
@@ -95,17 +95,18 @@
                             <input type="number" class="form-control" id="dni" placeholder="123456">
                         </div>
                         <div class="mb-3">
-                          <label for="nombreUser" class="form-label">Nombre de usuario</label>
-                          <input class="form-control" id="nombreUser" placeholder="ejemplo">
+                          <label for="user" class="form-label">Nombre de usuario</label>
+                          <input class="form-control" id="user" placeholder="ejemplo">
                         </div>
                         <div class="mb-3">
-                          <label for="passUser" class="form-label">Contraseña</label>
-                          <input type="password" class="form-control" id="passUser" placeholder="*********">
+                          <label for="pass" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" id="pass" placeholder="*********">
                         </div>
                         <button type="submit" class="btn w-100 home__productos-boton mt-4" id="botonRegistro">Enviar</button>
                       </form>
                 </div>
             </div>
+            <div class="row gris justify-content-center mt-4" id="estado"></div>
         </div>
 
         <!-- Modal -->

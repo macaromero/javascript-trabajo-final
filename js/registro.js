@@ -11,35 +11,52 @@ class Usuario {
 
 
 // FUNCIÓN DE REGISTRO //
-let registro = document.querySelector("#registro");
-if (registro != null) {
-    registro.addEventListener("submit", (e) => {
+$(() => {
+    $("#registro").on("submit", function (e) {
         e.preventDefault();
-        let form = e.target;
         let usuario = new Usuario;
-    
-        usuario.nombre = form.children[0].children[1].value;
-        usuario.apellido = form.children[1].children[1].value;
-        usuario.dni = form.children[2].children[1].value;
-        usuario.user = form.children[3].children[1].value;
-        usuario.password = form.children[4].children[1].value;
-    
-        if ((usuario.nombre != "") && (usuario.apellido != "") && (usuario.dni != "") && (usuario.user != "") && (usuario.password != "")) {
-            sessionStorage.setItem("newUser", JSON.stringify(usuario));
-            let registro = document.querySelector("#registro__container");
-            registro.innerHTML = `
-                <div class="row text-center">
-                    <h2 class="colorPrincipal">¡Te registraste correctamente!</h2>
-                </div>
-                <div class="row text-center mt-4">
-                    <h3 class="colorPrincipal">Ya podés iniciar sesión</h3>
-                </div>
-            `;
-        } else {
-            let myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-            myModal.show()
-        };
+        const url = "https://jsonplaceholder.typicode.com/posts";
+        const method = $("#registro").attr("method");
+
+        $.ajax({
+            beforeSend: function(){
+                $("#estado").text("Enviando");
+                usuario.nombre = $("#nombre").val();
+                usuario.apellido = $("#apellido").val();
+                usuario.dni = $("#dni").val();
+                usuario.user = $("#user").val();
+                usuario.password = $("#pass").val();
+            },
+            url: url,
+            type: method,
+            data: 
+                {
+                    "nombre": usuario.nombre, 
+                    "apellido": usuario.apellido,
+                    "dni": usuario.dni,
+                    "user": usuario.user,
+                    "password": usuario.password
+                },
+            success: function(jqXHR, resp, data){
+                sessionStorage.setItem("newUser", JSON.stringify(usuario));
+                let registro = document.querySelector("#registro__container");
+                registro.innerHTML =
+                    `
+                        <div class="row text-center">
+                            <h2 class="colorPrincipal">¡Te registraste correctamente ${usuario.nombre}!</h2>
+                        </div>
+                        <div class="row text-center mt-4">
+                            <h3 class="colorPrincipal">Ya podés iniciar sesión con tu usuario y contraseña</h3>
+                        </div>
+                    `;                  
+            },
+            error: function(jqXHR, status, resp) {
+                let myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                myModal.show()
+            }
+        });     
     });
-};
+});
+
 
 

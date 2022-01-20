@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Macarena",
+        "apellido": "Romero",
+        "dni": 35995513, 
+        "nombreUser": "user", 
+        "passUser": 1234
+    },
+    {
+        "nombre": "Profe",
+        "apellido": "Profe",
+        "dni": 1234, 
+        "nombreUser": "usuario", 
+        "passUser": 1234
+    }
+]

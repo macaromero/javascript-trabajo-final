@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cat Chow Gatitos",
+        "categoria": "Alimentos para gato",
+        "imagen": "cat-chow-gatitos.jpg",
+        "precio": 1200,
+        "stock": 20
+    },
+    {
+        "id": 2,
+        "nombre": "Dog Chow Edad Madura",
+        "categoria": "Alimentos para perro",
+        "imagen": "dog-chow-edad-madura.jpg",
+        "precio": 1000,
+        "stock": 10 
+    },
+    {
+        "id": 3,
+        "nombre": "Whiskas Adulto",
+        "categoria": "Alimentos para gato",
+        "imagen": "whiskas-adulto.jpg",
+        "precio": 970,
+        "stock": 30 
+    },
+    {
+        "id": 4,
+        "nombre": "Iams Adulto",
+        "categoria": "Alimentos para gato",
+        "imagen": "iams-adulto.jpg",
+        "precio": 900,
+        "stock": 25 
+    },
+    {
+        "id": 5,
+        "nombre": "Piedras Sanitarias",
+        "categoria": "Higiene",
+        "imagen": "piedras-sanitarias-poopy-pets.jpg",
+        "precio": 375,
+        "stock": 24 
+    },
+    {
+        "id": 6,
+        "nombre": "Royal Canin Poodle",
+        "categoria": "Alimentos para perro",
+        "imagen": "royal-canin-poodle.jpg",
+        "precio": 1400,
+        "stock": 15 
+    },
+    {
+        "id": 7,
+        "nombre": "Shampoo Pulguicida",
+        "categoria": "Higiene",
+        "imagen": "shampoo.jpg",
+        "precio": 450,
+        "stock": 44 
+    },
+    {
+        "id": 8,
+        "nombre": "Eukanuba Puppy",
+        "categoria": "Alimentos para perro",
+        "imagen": "eukanuba-puppy.jpg",
+        "precio": 1150,
+        "stock": 20 
+    },
+    {
+        "id": 9,
+        "nombre": "Bandeja Sanitaria",
+        "categoria": "Higiene",
+        "imagen": "bandeja-sanitaria.jpg",
+        "precio": 670,
+        "stock": 14 
+    },
+    {
+        "id": 10,
+        "nombre": "Dog Chow Adulto Raza Pequeña",
+        "categoria": "Alimentos para perro",
+        "imagen": "dog-chow-adulto.jpg",
+        "precio": 1200,
+        "stock": 20 
+    },
+    {
+        "id": 11,
+        "nombre": "Excellent Urinario",
+        "categoria": "Alimentos para gato",
+        "imagen": "excellent-urinario.jpg",
+        "precio": 1400,
+        "stock": 15 
+    },
+    {
+        "id": 12,
+        "nombre": "Cepillo para peinar",
+        "categoria": "Higiene",
+        "imagen": "cepillo.jpg",
+        "precio": 300,
+        "stock": 12 
+    }
+]
