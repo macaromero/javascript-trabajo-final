@@ -25,9 +25,9 @@
     },
     {
         "id": 4,
-        "nombre": "Iams Adulto",
+        "nombre": "Iams Indoor",
         "categoria": "Alimentos para gato",
-        "imagen": "iams-adulto.jpg",
+        "imagen": "iams-indoor.jpg",
         "precio": 900,
         "stock": 25 
     },
@@ -73,9 +73,9 @@
     },
     {
         "id": 10,
-        "nombre": "Dog Chow Adulto Raza Pequeña",
+        "nombre": "Pedigree Cachorro",
         "categoria": "Alimentos para perro",
-        "imagen": "dog-chow-adulto.jpg",
+        "imagen": "pedigree-cachorro.jpg",
         "precio": 1200,
         "stock": 20 
     },

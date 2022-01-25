@@ -20,7 +20,9 @@ $(() => {
 
         $.ajax({
             beforeSend: function(){
-                $("#estado").text("Enviando");
+                $("#botonRegistro").attr("disabled", "true");
+                $("#textoBotonRegistro").addClass("d-none");
+                $("#spinner-registro").removeClass("d-none");
                 usuario.nombre = $("#nombre").val();
                 usuario.apellido = $("#apellido").val();
                 usuario.dni = $("#dni").val();
@@ -38,21 +40,31 @@ $(() => {
                     "password": usuario.password
                 },
             success: function(jqXHR, resp, data){
-                sessionStorage.setItem("newUser", JSON.stringify(usuario));
-                let registro = document.querySelector("#registro__container");
-                registro.innerHTML =
-                    `
-                        <div class="row text-center">
-                            <h2 class="colorPrincipal">¡Te registraste correctamente ${usuario.nombre}!</h2>
-                        </div>
-                        <div class="row text-center mt-4">
-                            <h3 class="colorPrincipal">Ya podés iniciar sesión con tu usuario y contraseña</h3>
-                        </div>
-                    `;                  
+                if ((usuario.nombre != "") && (usuario.apellido != "") && (usuario.dni != "") && (usuario.user != "") && (usuario.password != "")) {
+                    sessionStorage.setItem("newUser", JSON.stringify(usuario));
+                    let registro = document.querySelector("#registro__container");
+                    registro.innerHTML =
+                        `
+                            <div class="row text-center">
+                                <h2 class="colorPrincipal">¡Te registraste correctamente ${usuario.nombre}!</h2>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-6">
+                                    <a class="btn w-100 home__productos-boton mt-4" href="./inicioSesion.html">Ya podés iniciar sesión con tu usuario y contraseña</a>
+                                </div>
+                            </div>
+                        `;  
+                } else {
+                    let myModal = new bootstrap.Modal(document.getElementById('errorRegistro'));
+                    myModal.show();
+                    $("#botonRegistro").removeAttr("disabled");
+                    $("#textoBotonRegistro").removeClass("d-none");
+                    $("#spinner-registro").addClass("d-none");
+                }
+                                
             },
             error: function(jqXHR, status, resp) {
-                let myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-                myModal.show()
+                alert("Ocurrió un error, volvé a intentarlo");
             }
         });     
     });

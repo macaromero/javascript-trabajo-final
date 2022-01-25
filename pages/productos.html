@@ -25,19 +25,11 @@
                 <ul class="navbar-nav me-auto mt-0 navbar__lista">
                     <li class="nav-item">
                         <a class="nav-link navbar__link" href="./productos.html">Productos</a>
-                      </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar__link" href="">Cómo comprar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar__link" href="#contacto">Contacto</a>
+                        <a class="nav-link navbar__link" href="./contacto.html">Contacto</a>
                     </li>
                 </ul>
-
-                <form class="d-inline-flex my-2 my-lg-0"  method="GET" action="#">
-                    <input class="form-control me-sm-2" type="search" placeholder="Buscá tus productos" aria-label="Search">
-                    <button class="btn btn-primary my-2 my-sm-0 navbar__search-boton" type="submit"><i class="fas fa-search colorPrincipal"></i></button>
-                </form>
             </div>
           
             <div class="col-lg-1 col-3 p-0 me-2 text-center" id="userDiv">
@@ -52,24 +44,24 @@
                         <i class="fas fa-user navbar__usuario-boton"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end p-3" id="navbar__dropdown-menu">
-                        <form action="" id="formulario" method="post" onsubmit="iniciarSesion(event)">
-                            <div class="mb-3">
-                                <label for="nombreUser" class="form-label">Nombre de usuario</label>
-                                <input class="form-control" id="nombreUser" placeholder="email@ejemplo.com">
-                            </div>
-                            <div class="mb-3">
-                                <label for="passUser" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="passUser" placeholder="*********">
-                            </div>
-                            <input type="submit" class="btn btn-primary w-100 mt-2" id="userBoton" value="Enviar"/>
-                        </form>
-                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="./inicioSesion.html">Iniciar sesión</a>
                         <a class="dropdown-item" href="./registro.html">Registrarme</a>
-                        <a class="dropdown-item" href="">Olvidé mi contraseña</a>
                     </div>
                 </div>
             </div>
         </nav>
+        <div class="container fixed-top" id="container-carrito">
+            <div class="row">
+              <div class="col" id="carrito"></div>
+            </div>
+            <div class="row">
+                <div class="carrito__base text-center">
+                  <p class="carrito__total my-2"></p>
+                  <a class="btn home__productos-boton w-75 mb-2" href="">Comprar</a>
+                  <button class="btn carrito__vaciar w-50 mb-2">Vaciar carrito</button>
+                </div>
+              </div>
+        </div>
     </header>
 
 <!-- PRODUCTOS -->
@@ -96,7 +88,7 @@
                     </form>
                 </div>
             </div>
-            <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1" id="cardsProductos"></div>
+            <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 row-cards-productos" id="cardsProductos"></div>
         </div>
 
         <!-- Modal -->
@@ -129,18 +121,35 @@
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                         <h2 class="footer__titulos">Atajos</h2>
                         <ul class="list-group list-group-flush footer__lista">
-                        <a href="" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Productos</li></a>
-                        <a href="" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Cómo comprar</li></a>
-                        <a href="#contacto" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Contacto</li></a>
+                            <a href="../index.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Home</li></a>
+                            <a href="./inicioSesion.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Iniciar sesión</li></a>
+                            <a href="./registro.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Registro</li></a>
+                            <a href="./productos.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Productos</li></a>
+                            <a href="./contacto.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Contacto</li></a>
                         </ul>
                     </div>
     
                     <div class="col-xl-3 col-lg-3 col-md-8 col-sm-10">
                         <h2 class="footer__titulos">Contactanos</h2>             
-                        <p class="mb-2"><a href="https://www.google.com/maps/place/Como+Perro+Y+Gato/@-34.6019262,-58.400807,17z/data=!4m13!1m7!3m6!1s0x95bcca94c904bc2d:0x1b6277b7d931d453!2sPres.+Jos%C3%A9+Evaristo+Uriburu+620,+C1027+AAN,+Buenos+Aires!3b1!8m2!3d-34.6019262!4d-58.3986183!3m4!1s0x95bcca94c904bc2d:0x8ee81bfaf5f2b75b!8m2!3d-34.6019383!4d-58.3986185" class="footer__link gris" target="_blank"><i class="fas fa-map-marker-alt pe-2"></i>Pres. José Evaristo Uriburu 620, Ciudad Autónoma de Buenos Aires</p></a>
-                        <p class="mb-2 gris"><i class="fab fa-whatsapp pe-2"></i>+54 9 11 5694 7030</p>
-                        <p class="mb-2"><a href="https://www.instagram.com/comoperroygatostore" class="footer__link gris" target="_blank"><i class="fab fa-instagram pe-2"></i>comoperroygatostore</a></p>
-                        <p class="mb-2"><a href="https://www.facebook.com/comoperroygatostore" class="footer__link gris" target="_blank"><i class="fab fa-facebook pe-2"></i>Como Perro & Gato</a></p>
+                        <p class="mb-2">
+                            <a href="https://www.google.com/maps/place/Como+Perro+Y+Gato/@-34.6019262,-58.400807,17z/data=!4m13!1m7!3m6!1s0x95bcca94c904bc2d:0x1b6277b7d931d453!2sPres.+Jos%C3%A9+Evaristo+Uriburu+620,+C1027+AAN,+Buenos+Aires!3b1!8m2!3d-34.6019262!4d-58.3986183!3m4!1s0x95bcca94c904bc2d:0x8ee81bfaf5f2b75b!8m2!3d-34.6019383!4d-58.3986185" class="footer__link gris" target="_blank">
+                                <i class="fas fa-map-marker-alt pe-2"></i>
+                                Pres. José Evaristo Uriburu 620, Ciudad Autónoma de Buenos Aires
+                            </a>
+                        </p>
+                        <p class="mb-2 gris footer__whatsapp"><i class="fab fa-whatsapp pe-2"></i>+54 9 11 5694 7030</p>
+                        <p class="mb-2">
+                            <a href="https://www.instagram.com/comoperroygatostore" class="footer__link gris" target="_blank">
+                                <i class="fab fa-instagram pe-2"></i>
+                                comoperroygatostore
+                            </a>
+                        </p>
+                        <p class="mb-2">
+                            <a href="https://www.facebook.com/comoperroygatostore" class="footer__link gris" target="_blank">
+                                <i class="fab fa-facebook pe-2"></i>
+                                Como Perro & Gato
+                            </a>
+                        </p>
                     </div>
                 </div>
     
@@ -180,7 +189,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../js/productos.js"></script>
-    <script src="../js/registro.js"></script>
+    <script src="../js/carrito.js"></script>
     <script src="../main.js"></script>
     
 </body>

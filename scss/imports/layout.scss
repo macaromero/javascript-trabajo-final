@@ -18,12 +18,6 @@ h4 {
     font-size: 1em;
 }
 
-// @media (max-width: 1200px) {
-//     .marginMedia {
-//       margin-bottom: 3em;
-//     }
-// }
-
 .colorPrincipal {
     color: $colorPrincipal;
 }
@@ -122,9 +116,68 @@ h4 {
 }
 
 
+/* CARRITO */
+#container-carrito {
+    top: 81px;
+    right: -79.1em;
+    max-height: 70vh;
+    width: 23%;
+    background-color: #ededed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.carrito__body {
+    color: #1a1a1a;
+}
+
+.carrito__base {
+    background-color: #d5d5d5;
+    
+    .carrito__total {
+        color: #1a1a1a;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    .carrito__vaciar {
+        background-color: rgb(219, 86, 86);
+        border-color: rgb(219, 86, 86);
+        color: white;
+        font-size: 0.7em;
+    }
+    .carrito__vaciar:hover {
+        background-color: rgb(214, 57, 57);
+        border-color: rgb(214, 57, 57);
+        color: white;
+        font-size: 0.7em;
+    }
+}
+
+.carrito__eliminar-item {
+    position: absolute;
+    left: 17.7em;
+    color: rgb(219, 86, 86);
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.carrito__eliminar-item:hover {
+    color: rgb(214, 57, 57);
+    cursor: pointer;
+}
+
+.suma, .resta {
+    color: $colorPrincipal;
+    cursor: pointer;
+}
+
+.suma:hover, .resta:hover {
+    color: $colorHover;
+    cursor: pointer;
+}
+
+
 /* FOOTER */
-
-
 .footer {
     background-color: #d8d8d8;
 
@@ -155,6 +208,10 @@ h4 {
     .footer__link {
         color: $gris;
         text-decoration: none;
+    }
+
+    .footer__whatsapp {
+        cursor: pointer;
     }
     
     .footer__img-tarjeta {

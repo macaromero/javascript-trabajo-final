@@ -2,8 +2,10 @@
 
 
 /* HOME */
-.home__carousel-slide {
-    padding-top: 2rem;
+.home__imagen {
+    padding-top: 5rem;
+    padding-right: 0;
+    margin-right: 0;
 }
 
 .home__icono-pagos {
@@ -42,6 +44,7 @@
     clear: both;
     list-style: none;
     white-space: nowrap;
+    position: relative;
 }
 
 .home__productos-item-carousel {
@@ -85,11 +88,40 @@
 }
 
 
+/* INICIO SESIÓN */
+.sesion__main {
+    margin-top: 8em;
+}
+
+
 /* PRODUCTOS */
 .productos__main {
     margin-top: 9em;
     margin-bottom: 14em
 }
+
+/* CONTACTO */
+.contacto__main {
+    margin-top: 8em;
+}
+
+.contacto__link {
+    text-decoration: none;
+}
+
+.contacto__whatsapp {
+    cursor: pointer;
+}
+
+.contacto__link:hover {
+    text-decoration: none;
+    color: $colorHover;
+}
+
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* RESETEO */
 * {
   margin: 0;
@@ -79,6 +80,55 @@ h4 {
   top: -0.4em;
   scale: 83%; }
 
+/* CARRITO */
+#container-carrito {
+  top: 81px;
+  right: -79.1em;
+  max-height: 70vh;
+  width: 23%;
+  background-color: #ededed;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.carrito__body {
+  color: #1a1a1a; }
+
+.carrito__base {
+  background-color: #d5d5d5; }
+  .carrito__base .carrito__total {
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 1.1em; }
+  .carrito__base .carrito__vaciar {
+    background-color: #db5656;
+    border-color: #db5656;
+    color: white;
+    font-size: 0.7em; }
+  .carrito__base .carrito__vaciar:hover {
+    background-color: #d63939;
+    border-color: #d63939;
+    color: white;
+    font-size: 0.7em; }
+
+.carrito__eliminar-item {
+  position: absolute;
+  left: 17.7em;
+  color: #db5656;
+  font-size: 1.3em;
+  cursor: pointer; }
+
+.carrito__eliminar-item:hover {
+  color: #d63939;
+  cursor: pointer; }
+
+.suma, .resta {
+  color: rgba(23, 104, 172, 0.9);
+  cursor: pointer; }
+
+.suma:hover, .resta:hover {
+  color: #105996;
+  cursor: pointer; }
+
 /* FOOTER */
 .footer {
   background-color: #d8d8d8; }
@@ -100,6 +150,8 @@ h4 {
   .footer .footer__link {
     color: #757575;
     text-decoration: none; }
+  .footer .footer__whatsapp {
+    cursor: pointer; }
   .footer .footer__img-tarjeta {
     height: 1.6em; }
 
@@ -112,8 +164,10 @@ h4 {
     margin-left: 0 !important; } }
 
 /* HOME */
-.home__carousel-slide {
-  padding-top: 2rem; }
+.home__imagen {
+  padding-top: 5rem;
+  padding-right: 0;
+  margin-right: 0; }
 
 .home__icono-pagos {
   font-size: 3em;
@@ -144,7 +198,8 @@ h4 {
 .home__productos-lista-carousel {
   clear: both;
   list-style: none;
-  white-space: nowrap; }
+  white-space: nowrap;
+  position: relative; }
 
 .home__productos-item-carousel {
   clear: both;
@@ -178,7 +233,25 @@ h4 {
 .registro__modal-footer {
   border-top: none; }
 
+/* INICIO SESIÓN */
+.sesion__main {
+  margin-top: 8em; }
+
 /* PRODUCTOS */
 .productos__main {
   margin-top: 9em;
   margin-bottom: 14em; }
+
+/* CONTACTO */
+.contacto__main {
+  margin-top: 8em; }
+
+.contacto__link {
+  text-decoration: none; }
+
+.contacto__whatsapp {
+  cursor: pointer; }
+
+.contacto__link:hover {
+  text-decoration: none;
+  color: #105996; }
