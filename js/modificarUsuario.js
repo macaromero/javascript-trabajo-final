@@ -1,6 +1,7 @@
 // Variable de usuario
 let usuario = new Usuario;
 usuario = JSON.parse(sessionStorage.getItem("usuario"));
+let newUser = JSON.parse(sessionStorage.getItem("newUser")) || {};
 
 $(() => {
  
@@ -56,6 +57,7 @@ $(() => {
         e.preventDefault();
         const url = "https://jsonplaceholder.typicode.com/posts";
         const method = $("#modificar-usuario").attr("method");
+        let marcador = false;
 
         $.ajax({
 
@@ -65,6 +67,11 @@ $(() => {
                 $("#textoEnviarModificacion").addClass("d-none");
                 $("#spinner-modificacion").removeClass("d-none");
                 $("#botonPassword").attr("disabled", "true");
+
+                // Chequeo si el usuario es uno que se registró en la página (y no uno de los hardcodeados en el JSON), si es así, cambio el marcador a true
+                if (newUser.user == usuario.user) {
+                    marcador = true;
+                }
                 usuario.nombre = $("#nombre").val();
                 usuario.apellido = $("#apellido").val();
                 usuario.dni = $("#dni").val();
@@ -94,7 +101,12 @@ $(() => {
                                 <h2 class="colorPrincipal">¡Tus datos fueron actualizados correctamente ${usuario.nombre}!</h2>
                             </div>
                         `
-                    ); 
+                    );
+
+                    // Si el marcador está en true, actualizo también los datos del usuario en el objeto "newUser" del sessionStorage
+                    if (marcador == true) {
+                        sessionStorage.setItem("newUser", JSON.stringify(usuario));
+                    };
                 } else {
 
                     // Si hay campos vacíos, le aparece un modal avisándole que todos los campos son obligatorios

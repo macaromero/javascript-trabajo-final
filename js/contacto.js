@@ -16,7 +16,8 @@ class ContactoForm {
         this.mensaje = $("#consulta").val();
     };
 
-    envioExitoso() {     
+    envioExitoso() {
+        sessionStorage.setItem("contacto", JSON.stringify(this));
         $(".contacto__container").html(
             `
                 <div class="row text-center">
@@ -68,7 +69,7 @@ $(() => {
                 // Si la llamada es exitosa, chequeo que el usuario haya completado todos los campos que son obligatorios
                 if ((msj.nombre != "") && (msj.mail != "") && (msj.mensaje != "")) {
 
-                    // En el caso de que lo haya hecho, llamo al método "envioExitoso()", que modifica el html para avisarle que el envío fue exitoso
+                    // En el caso de que lo haya hecho, llamo al método "envioExitoso()", que guarda el objeto en el sessionStorage y modifica el html para avisarle que el envío fue exitoso
                     msj.envioExitoso();
                 } else {
 
