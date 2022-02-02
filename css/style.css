@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* RESETEO */
 * {
   margin: 0;
@@ -21,6 +20,10 @@ h4 {
 
 .gris {
   color: #757575; }
+
+.main {
+  margin-top: 9em;
+  margin-bottom: 14em; }
 
 /* NAVBAR */
 #navbar {
@@ -224,28 +227,54 @@ h4 {
   -o-transform: translateX(-596px); }
 
 /* REGISTRO */
-.registro__main {
-  margin-top: 8em; }
-
 .registro__modal-header {
   border-bottom: none; }
 
 .registro__modal-footer {
   border-top: none; }
 
-/* INICIO SESIÓN */
-.sesion__main {
-  margin-top: 8em; }
+/* MODIFICAR USUARIO */
+.modificar-usuario__input {
+  width: 91.8%; }
 
-/* PRODUCTOS */
-.productos__main {
-  margin-top: 9em;
-  margin-bottom: 14em; }
+/* CHECKOUT */
+.checkout__total {
+  position: relative;
+  left: 0.5em; }
+
+.checkout__total-valor {
+  position: relative;
+  left: 36.1em; }
+
+.checkout__eliminar-item {
+  color: #db5656;
+  font-size: 1.3em;
+  cursor: pointer; }
+
+.checkout__eliminar-item:hover {
+  color: #d63939;
+  cursor: pointer; }
+
+.checkout__vaciar-carrito {
+  color: white;
+  background-color: #db5656;
+  position: relative;
+  top: -0.4em;
+  left: 37em; }
+
+.checkout__vaciar-carrito:hover {
+  color: white;
+  background-color: #d63939; }
+
+.checkout__ancla {
+  color: rgba(23, 104, 172, 0.9);
+  text-decoration: none; }
+
+.checkout__ancla:hover {
+  color: #105996;
+  text-decoration: none; }
 
 /* CONTACTO */
-.contacto__main {
-  margin-top: 8em; }
-
 .contacto__link {
   text-decoration: none; }
 

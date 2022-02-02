@@ -1,196 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/e1786e1481.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css"/>
-    <title>Como Perro & Gato - Productos</title>
-</head>
-<body>
-<!-- NAVBAR -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
-            <a class="navbar-brand ms-4" href="../index.html">
-                <img src="../images/logo-blanco.png" height="55rem" class="d-inline-block align-top" alt="Logo Como Perro & Gato">
-            </a>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../images/title.png" type="image/x-icon">
+        <script src="https://kit.fontawesome.com/e1786e1481.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css"/>
+        <title>Como Perro & Gato - Productos</title>
+    </head>
+    <body>
+    <!-- NAVBAR -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+                <a class="navbar-brand ms-4" href="../index.html">
+                    <img src="../images/logo-blanco.png" height="55rem" class="d-inline-block align-top" alt="Logo Como Perro & Gato">
+                </a>
+            
+                <button class="navbar-toggler w-25" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse navbar__collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mt-0 navbar__lista">
+                        <li class="nav-item">
+                            <a class="nav-link navbar__link" href="./productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar__link" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="col-lg-1 col-3 p-0 me-2 text-center" id="userDiv">
+                    <div class="d-inline align-middle">
+                        <a class="navbar-brand" href="" id="cartBoton">
+                            <i class="fas fa-shopping-cart navbar__usuario-boton" id="iconoCarrito"></i>
+                        </a>
+                    </div>
         
-            <button class="navbar-toggler w-25" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <div class="btn-group" id="userDropdown">
+                        <a class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user navbar__usuario-boton"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-3" id="navbar__dropdown-menu">
+                            <a class="dropdown-item" href="./inicioSesion.html">Iniciar sesión</a>
+                            <a class="dropdown-item" href="./registro.html">Registro</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container fixed-top" id="container-carrito">
+                <div class="row">
+                <div class="col" id="carrito"></div>
+                </div>
+                <div class="row carritoBase" id="carrito-base"></div>
+            </div>
+        </header>
+
+    <!-- PRODUCTOS -->
+        <main class="main">
+            <div class="container">
+                <div class="row mb-5">
+                    <h2 class="text-uppercase colorPrincipal text-center">Productos</h2>
+                </div>
+                <div class="row mb-3 justify-content-end">
+                    <div class="col-3 text-end">
+                        <p class="d-inline colorPrincipal">Ordenar por</p>
+                        <form action="" class="w-50 d-inline-block">
+                            <select class="form-select colorPrincipal" aria-label="Default select example" id="ordenProductos">
+                                <option value="default" selected id="default">Defecto</option>
+                                <option value="nombre" >Nombre</option>
+                                <option value="menorPrecio" >Menor precio</option>
+                                <option value="mayorPrecio">Mayor precio</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-2">
+                        <form action="">
+                            <select class="form-select" aria-label="Default select example" id="filtroProductos"></select>
+                        </form>
+                    </div>
+                </div>
+                <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 row-cards-productos" id="cardsProductos"></div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="sesionModal" tabindex="-1" aria-labelledby="sesionModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header registro__modal-header p-0">
+                            <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-header registro__modal-header">
+                            <h5 class="modal-title text-center" id="sesionModalLabel">Tenés que iniciar sesión para poder agregar productos al carrito.</h5>
+                        </div>
+                        <div class="modal-footer justify-content-center registro__modal-footer">
+                            <button type="button" class="btn home__productos-boton w-75" data-bs-dismiss="modal" id="botonIniciarSesion">Iniciar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+    <!-- FOOTER -->
+        <footer>
+            <div class="container-fluid mt-5 mb-0 pt-4 pb-4 footer">
+                <div class="container" id="contacto">
+                    <div class="row justify-content-around">
         
-            <div class="collapse navbar-collapse navbar__collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mt-0 navbar__lista">
-                    <li class="nav-item">
-                        <a class="nav-link navbar__link" href="./productos.html">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar__link" href="./contacto.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-          
-            <div class="col-lg-1 col-3 p-0 me-2 text-center" id="userDiv">
-                <div class="d-inline align-middle">
-                    <a class="navbar-brand" href="" id="cartBoton">
-                        <i class="fas fa-shopping-cart navbar__usuario-boton" id="iconoCarrito"></i>
-                    </a>
-                </div>
-    
-                <div class="btn-group" id="userDropdown">
-                    <a class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user navbar__usuario-boton"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end p-3" id="navbar__dropdown-menu">
-                        <a class="dropdown-item" href="./inicioSesion.html">Iniciar sesión</a>
-                        <a class="dropdown-item" href="./registro.html">Registrarme</a>
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                            <h2 class="footer__titulos">Sobre nosotros</h2>             
+                            <p class="gris">Somos un petshop dedicado a la venta de insumos para animales, alimento balanceado para perros y gatos, elementos de higiene y mucho más.</p>
+                        </div>
+        
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <h2 class="footer__titulos">Atajos</h2>
+                            <ul class="list-group list-group-flush footer__lista">
+                                <a href="../index.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Home</li></a>
+                                <a href="./inicioSesion.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Iniciar sesión</li></a>
+                                <a href="./registro.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Registro</li></a>
+                                <a href="./productos.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Productos</li></a>
+                                <a href="./contacto.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Contacto</li></a>
+                            </ul>
+                        </div>
+        
+                        <div class="col-xl-3 col-lg-3 col-md-8 col-sm-10">
+                            <h2 class="footer__titulos">Contactanos</h2>             
+                            <p class="mb-2">
+                                <a href="https://goo.gl/maps/fzX4SGJvLFm1v9nh8" class="footer__link gris" target="_blank">
+                                    <i class="fas fa-map-marker-alt pe-2"></i>
+                                    Pres. José Evaristo Uriburu 677, Ciudad Autónoma de Buenos Aires
+                                </a>
+                            </p>
+                            <p class="mb-2 gris footer__whatsapp"><i class="fab fa-whatsapp pe-2"></i>+54 9 11 5694 7030</p>
+                            <p class="mb-2">
+                                <a href="https://www.instagram.com/comoperroygatostore" class="footer__link gris" target="_blank">
+                                    <i class="fab fa-instagram pe-2"></i>
+                                    comoperroygatostore
+                                </a>
+                            </p>
+                            <p class="mb-2">
+                                <a href="https://www.facebook.com/comoperroygatostore" class="footer__link gris" target="_blank">
+                                    <i class="fab fa-facebook pe-2"></i>
+                                    Como Perro & Gato
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+        
+                    <div class="row mt-4 ms-3 justify-content-around">
+                        <h2 class="footer__titulos text-center">Medios de pago</h2>
+                        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 text-center">
+                            <img src="../images/tarjetas_visa_01.png" alt="Logo de Visa" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_mastercard_02.png" alt="Logo de Mastercard" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_amex_03.png" alt="Logo de American Express" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_diners_04.png" alt="Logo de Diners Club" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_cabal_05.png" alt="Logo de Cabal" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_mercadopago_06.png" alt="Logo de Mercado Pago" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_banelco_07.png" alt="Logo de Banelco" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_rapipago_08.png" alt="Logo de Rapipago" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_pago_facil_09.png" alt="Logo de Pago Fácil" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_cencosud_10.png" alt="Logo de Tarjeta Cencosud" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_nativa_11.png" alt="Logo de Nativa" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_naranja_12.png" alt="Logo de Tarjeta Naranja" class="footer__img-tarjeta">
+                            <img src="../images/tarjetas_shopping_13.png" alt="Logo de Tarjeta Shopping" class="footer__img-tarjeta">
+                        </div>
+                    </div>
+        
+                    <div class="row mt-4 ms-3 justify-content-around centrado">
+                        <h2 class="footer__titulos ms-1 text-center">Métodos de retiro</h2>
+                        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 pl-2 gris text-center">
+                            <span class="mb-0 footer__metodos-retiro"><i class="fas fa-store-alt me-2"></i> Retirá gratis en nuestro local.</span>
+                            <span class="mb-0 footer__metodos-retiro"><i class="fas fa-bicycle me-2 ms-3 footer__icono-bici"></i> Enviá tu app favorita a retirarlo por vos.</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
-        <div class="container fixed-top" id="container-carrito">
-            <div class="row">
-              <div class="col" id="carrito"></div>
-            </div>
-            <div class="row">
-                <div class="carrito__base text-center">
-                  <p class="carrito__total my-2"></p>
-                  <a class="btn home__productos-boton w-75 mb-2" href="">Comprar</a>
-                  <button class="btn carrito__vaciar w-50 mb-2">Vaciar carrito</button>
-                </div>
-              </div>
-        </div>
-    </header>
+        </footer> 
 
-<!-- PRODUCTOS -->
-    <main class="productos__main">
-        <div class="container">
-            <div class="row mb-5">
-                <h2 class="text-uppercase colorPrincipal text-center">Productos</h2>
-            </div>
-            <div class="row mb-3 justify-content-end">
-                <div class="col-3 text-end">
-                    <p class="d-inline colorPrincipal">Ordenar por</p>
-                    <form action="" class="w-50 d-inline-block">
-                        <select class="form-select colorPrincipal" aria-label="Default select example" id="ordenProductos">
-                            <option value="default" selected id="default">Defecto</option>
-                            <option value="nombre" >Nombre</option>
-                            <option value="menorPrecio" >Menor precio</option>
-                            <option value="mayorPrecio">Mayor precio</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="col-2">
-                    <form action="">
-                        <select class="form-select" aria-label="Default select example" id="filtroProductos"></select>
-                    </form>
-                </div>
-            </div>
-            <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 row-cards-productos" id="cardsProductos"></div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="sesionModal" tabindex="-1" aria-labelledby="sesionModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header registro__modal-header">
-                  <h5 class="modal-title text-center" id="sesionModalLabel">Tenés que iniciar sesión para poder agregar productos al carrito.</h5>
-                </div>
-                <div class="modal-footer justify-content-center registro__modal-footer">
-                  <button type="button" class="btn btn-secondary w-75" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-        </div>
-    </main>
-
-
-<!-- FOOTER -->
-    <footer>
-        <div class="container-fluid mt-5 mb-0 pt-4 pb-4 footer">
-            <div class="container" id="contacto">
-                <div class="row justify-content-around">
-    
-                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-                        <h2 class="footer__titulos">Sobre nosotros</h2>             
-                        <p class="gris">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam nam officia quo necessitatibus laudantium eligendi, fugiat itaque velit est veritatis dignissimos ullam iusto, recusandae quisquam officiis pariatur suscipit expedita obcaecati.</p>
-                    </div>
-    
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                        <h2 class="footer__titulos">Atajos</h2>
-                        <ul class="list-group list-group-flush footer__lista">
-                            <a href="../index.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Home</li></a>
-                            <a href="./inicioSesion.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Iniciar sesión</li></a>
-                            <a href="./registro.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Registro</li></a>
-                            <a href="./productos.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Productos</li></a>
-                            <a href="./contacto.html" class="footer__lista-item--ancla pb-1"><li class="footer__lista-item">Contacto</li></a>
-                        </ul>
-                    </div>
-    
-                    <div class="col-xl-3 col-lg-3 col-md-8 col-sm-10">
-                        <h2 class="footer__titulos">Contactanos</h2>             
-                        <p class="mb-2">
-                            <a href="https://www.google.com/maps/place/Como+Perro+Y+Gato/@-34.6019262,-58.400807,17z/data=!4m13!1m7!3m6!1s0x95bcca94c904bc2d:0x1b6277b7d931d453!2sPres.+Jos%C3%A9+Evaristo+Uriburu+620,+C1027+AAN,+Buenos+Aires!3b1!8m2!3d-34.6019262!4d-58.3986183!3m4!1s0x95bcca94c904bc2d:0x8ee81bfaf5f2b75b!8m2!3d-34.6019383!4d-58.3986185" class="footer__link gris" target="_blank">
-                                <i class="fas fa-map-marker-alt pe-2"></i>
-                                Pres. José Evaristo Uriburu 620, Ciudad Autónoma de Buenos Aires
-                            </a>
-                        </p>
-                        <p class="mb-2 gris footer__whatsapp"><i class="fab fa-whatsapp pe-2"></i>+54 9 11 5694 7030</p>
-                        <p class="mb-2">
-                            <a href="https://www.instagram.com/comoperroygatostore" class="footer__link gris" target="_blank">
-                                <i class="fab fa-instagram pe-2"></i>
-                                comoperroygatostore
-                            </a>
-                        </p>
-                        <p class="mb-2">
-                            <a href="https://www.facebook.com/comoperroygatostore" class="footer__link gris" target="_blank">
-                                <i class="fab fa-facebook pe-2"></i>
-                                Como Perro & Gato
-                            </a>
-                        </p>
-                    </div>
-                </div>
-    
-                <div class="row mt-4 ms-3 justify-content-around">
-                    <h2 class="footer__titulos text-center">Medios de pago</h2>
-                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 text-center">
-                        <img src="../images/tarjetas_visa_01.png" alt="Logo de Visa" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_mastercard_02.png" alt="Logo de Mastercard" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_amex_03.png" alt="Logo de American Express" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_diners_04.png" alt="Logo de Diners Club" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_cabal_05.png" alt="Logo de Cabal" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_mercadopago_06.png" alt="Logo de Mercado Pago" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_banelco_07.png" alt="Logo de Banelco" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_rapipago_08.png" alt="Logo de Rapipago" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_pago_facil_09.png" alt="Logo de Pago Fácil" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_cencosud_10.png" alt="Logo de Tarjeta Cencosud" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_nativa_11.png" alt="Logo de Nativa" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_naranja_12.png" alt="Logo de Tarjeta Naranja" class="footer__img-tarjeta">
-                        <img src="../images/tarjetas_shopping_13.png" alt="Logo de Tarjeta Shopping" class="footer__img-tarjeta">
-                    </div>
-                </div>
-    
-                <div class="row mt-4 ms-3 justify-content-around centrado">
-                    <h2 class="footer__titulos ms-1 text-center">Métodos de retiro</h2>
-                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 pl-2 gris text-center">
-                        <span class="mb-0 footer__metodos-retiro"><i class="fas fa-store-alt me-2"></i> Retirá gratis en nuestro local.</span>
-                        <span class="mb-0 footer__metodos-retiro"><i class="fas fa-bicycle me-2 ms-3 footer__icono-bici"></i> Enviá tu app favorita a retirarlo por vos.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> 
-
-<!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="../js/productos.js"></script>
-    <script src="../js/carrito.js"></script>
-    <script src="../main.js"></script>
-    
-</body>
+    <!-- SCRIPTS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="../js/productos.js"></script>
+        <script src="../js/carrito.js"></script>
+        <script src="../js/usuario.js"></script>
+        <script src="../main.js"></script>
+        
+    </body>
 </html>
